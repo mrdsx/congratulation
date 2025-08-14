@@ -15,5 +15,5 @@ pressMeBtn.addEventListener("click", () => {
   after.style.display = "block";
   before.style.display = "block";
 
-  // audioComponent.play();
+  audioComponent.play();
 });
