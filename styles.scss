@@ -92,6 +92,11 @@ body {
   min-height: 100vh;
 }
 
+.waiting-title {
+  font-size: 1.5rem;
+  animation: appear 5s ease-out;
+}
+
 .congratulation {
   display: block;
   padding-block: 3rem;

@@ -1,19 +1,33 @@
+const BIRTH_DATE = 16;
+const BIRTH_MONTH = 8;
+
 const after = document.querySelector(".after");
 const audioComponent = document.querySelector(".audio-component");
 const before = document.querySelector(".before");
 const congratulation = document.querySelector(".congratulation");
+setCongratulationContent("none");
+
+const waitingTitle = document.querySelector(".waiting-title");
+waitingTitle.style.display = "none";
+
 const pressMeBtn = document.querySelector(".press-me-btn");
+pressMeBtn.addEventListener("click", handleClick);
 
-congratulation.style.display = "none";
-after.style.display = "none";
-before.style.display = "none";
+const dt = new Date();
 
-pressMeBtn.addEventListener("click", () => {
+function handleClick() {
   pressMeBtn.style.display = "none";
+  if (dt.getDate() !== BIRTH_DATE || dt.getMonth() + 1 !== BIRTH_MONTH) {
+    waitingTitle.style.display = "block";
+    return;
+  }
 
-  congratulation.style.display = "block";
-  after.style.display = "block";
-  before.style.display = "block";
-
+  setCongratulationContent("block");
   audioComponent.play();
-});
+}
+
+function setCongratulationContent(value) {
+  congratulation.style.display = value;
+  after.style.display = value;
+  before.style.display = value;
+}
